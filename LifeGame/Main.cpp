@@ -39,7 +39,7 @@ public:
 		}
 	}
 
-	void draw() const {
+	void draw() {
 		for (auto y : step(pos.height())) {
 			for (auto x : step(pos.width())) {
 				Shape2D::Hexagon(radius, pos[y][x]).draw(state[y][x] ? livingColor : deathColor).drawFrame(0.5);
