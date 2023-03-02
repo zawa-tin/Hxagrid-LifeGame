@@ -42,7 +42,7 @@ public:
 	void draw() const {
 		for (auto y : step(pos.height())) {
 			for (auto x : step(pos.width())) {
-				Shape2D::Hexagon(radius, pos[y][x]).draw(state[y][x] ? livingColor : deathColor);
+				Shape2D::Hexagon(radius, pos[y][x]).draw(state[y][x] ? livingColor : deathColor).drawFrame(0.5);
 				//font(U"{}"_fmt(Vec2{ x, y })).drawAt(pos[y][x]);
 			}
 		}
@@ -83,7 +83,7 @@ void Main() {
 			hxalifegame.update();
 			time -= 0.25;
 		}
-		if (KeyR.pressed()) {
+		if (SimpleGUI::Button(U"Restart", Vec2{ 50, 25 })) {
 			hxalifegame.restart();
 		}
 	}
